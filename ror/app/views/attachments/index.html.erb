@@ -1,0 +1,38 @@
+<div class="container">   
+<% if !flash[:notice].blank? %>   
+   <div>   
+      <%= flash[:notice] %>   
+   </div>   
+<% end %>   
+  
+<br>   
+  
+<%= link_to "New Attachment", new_attachment_path %>   
+<br>   
+<br>   
+  
+<table border="3">   
+   <thead>   
+      <tr>   
+         <th>Attachment Name</th>   
+         <th>Safe</th>   
+         <th>Download Link</th>   
+         <th>Action</th>   
+      </tr>   
+   </thead>   
+      
+   <tbody>   
+      <% @attachments.each do |attachment| %>   
+            
+         <tr>   
+            <td><%= attachment.name %></td>   
+            <td><%= attachment.safe %></td>   
+            <td><%= link_to "Download", attachment.attachment_url %></td>   
+            <td><%= link_to "Delete",  attachment, method: :delete, confirm: "Are you sure you want to delete #{attachment.name}?" %></td>   
+         </tr>   
+            
+      <% end %>   
+   </tbody>   
+      
+</table>   
+</div>  

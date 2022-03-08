@@ -18,3 +18,12 @@ services:
       - "3000:3000"
     depends_on:
       - database
+  # clamav:
+  #   image: clamav/clamav:stable_base
+  #   command: "chmod 777 /var/run/clamav/"
+  #   restart: always
+  #   volumes:
+  #     - ./.docker/volumes/clamav/run/:/var/run/clamav/
+  #     - ./.docker/volumes/clamav/lib/:/var/lib/clamav/
+  #   environment:
+  #     - CLAMD_SETTINGS_CSV=LocalSocket=/var/run/clamav/clamd.ctl
